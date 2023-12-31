@@ -4,6 +4,10 @@ const port = 3000;
 
 app.use(express.static('public')); // Assuming your HTML and CSS files are in a 'public' folder
 
+app.get("/", function (req, res) { // so the html appear
+  res.sendFile(__dirname + '/public/index.html');
+});
+
 app.get("/api/:nuix",function(req,res){
   res.json({
     "unix": req.params.nuix,
